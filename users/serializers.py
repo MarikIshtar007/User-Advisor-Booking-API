@@ -24,8 +24,3 @@ class UserProfileSerializer(serializers.ModelSerializer):
         )
         return user
 
-class AdvisorSerializer(serializers.ModelSerializer):
-    """Serializes an Advisor Profile object"""
-    class Meta:
-        model = models.AdvisorProfile
-        fields = ('id', 'name', 'photo_url')

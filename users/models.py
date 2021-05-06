@@ -50,10 +50,3 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         return self.email   
 
 
-class AdvisorProfile(models.Model):
-    id = models.CharField(max_length = 20,primary_key=True, unique=True)
-    name = models.CharField(max_length=255)
-    photo_url = models.CharField(max_length = 255)
-
-    def __str__(self):
-        return self.name

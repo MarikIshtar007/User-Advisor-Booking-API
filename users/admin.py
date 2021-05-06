@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import UserProfile, AdvisorProfile
+from .models import UserProfile
+
 # Register your models here.
 # Super-user credential is:
 # username = Aster
@@ -8,4 +9,4 @@ from .models import UserProfile, AdvisorProfile
 # password = 12345
 
 admin.site.register(UserProfile)
-admin.site.register(AdvisorProfile)
+
