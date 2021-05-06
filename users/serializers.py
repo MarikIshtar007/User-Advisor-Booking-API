@@ -3,7 +3,7 @@ from rest_framework import serializers
 from users import models
 
 class UserProfileSerializer(serializers.ModelSerializer):
-    """Serialized a User Profile object"""
+    """Serializes a User Profile object"""
 
     class Meta:
         model = models.UserProfile
@@ -23,3 +23,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
             password= validated_data['password']
         )
         return user
+
+class AdvisorSerializer(serializers.ModelSerializer):
+    """Serializes an Advisor Profile object"""
+    class Meta:
+        model = models.AdvisorProfile
+        fields = ('id', 'name', 'photo_url')
