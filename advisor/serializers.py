@@ -18,3 +18,10 @@ class AppointmentSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return models.Appointment.objects.create(**validated_data)
+
+
+class ShowAppointmentSerializer(serializers.ModelSerializer):
+    advisor_id = AdvisorSerializer()
+    class Meta:
+        model = models.Appointment
+        fields = ('user_id', 'advisor_id', 'booked_time')

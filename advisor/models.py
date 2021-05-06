@@ -13,7 +13,7 @@ class AdvisorProfile(models.Model):
 
 class Appointment(models.Model):
     """Table containing all the booked times between Advisors and Users"""
-    user_id = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(UserProfile, on_delete=models.CASCADE,related_name='appointments')
     advisor_id = models.ForeignKey(AdvisorProfile, on_delete=models.CASCADE)
     booked_time = models.DateTimeField()
 

@@ -27,7 +27,7 @@ class ShowAdvisors(generics.ListAPIView):
     """Shows the list of all advisors"""
     serializer_class = serializers.AdvisorSerializer
     queryset = models.AdvisorProfile.objects.all()
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
  
 
     # def list(self, request):
@@ -51,3 +51,19 @@ class BookAdvisors(generics.GenericAPIView):
             serializer.data,
             status=status.HTTP_200_OK
         )
+
+
+class ShowAppointments(generics.ListAPIView):
+    """Shows the respective bookings made by the current user"""
+    serializer_class = serializers.ShowAppointmentSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    # Look into if this is possible with generic api and with a viewset....
+    def get_queryset(self):
+        return models.Appointment.objects.all()
+
+    def get(self,request,user_id):
+        user=models.UserProfile.objects.get(id=user_id)
+        queryset=user.appointments.all()
+        serializer = self.get_serializer(queryset,many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
