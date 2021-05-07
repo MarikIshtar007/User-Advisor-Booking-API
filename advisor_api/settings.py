@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&%42zrz2)6^rl1j@=$o81+f)3hli(6w-ia$@@%8ahij2l$a=wu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['haany-advisor-api.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['haany-advisor-api.herokuapp.com','127.0.0.1','localhost']
 
 AUTH_USER_MODEL = 'users.UserProfile'
 
@@ -78,10 +78,21 @@ WSGI_APPLICATION = 'advisor_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default' : {
+        'ENGINE' : 'django.db.backends.postgresql_psycopg2',
+        'NAME' : 'test',
+        'USER' : 'postgres',
+        'PASSWORD' : '12345',
+        'HOST' : 'localhost',
+        'PORT' : '5432',
     }
 }
 

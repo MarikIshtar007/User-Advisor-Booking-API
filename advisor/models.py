@@ -4,8 +4,8 @@ from users.models import UserProfile
 # Create your models here.
 class AdvisorProfile(models.Model):
     """Model to store the Advisor Details"""
-    name = models.CharField(max_length=255)
-    photo_url = models.CharField(max_length = 255)
+    name = models.CharField(max_length=20)
+    photo_url = models.CharField(max_length = 20)
 
     def __str__(self):
         return self.name
