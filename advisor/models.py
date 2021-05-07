@@ -4,6 +4,7 @@ from users.models import UserProfile
 # Create your models here.
 class AdvisorProfile(models.Model):
     """Model to store the Advisor Details"""
+    id = models.CharField(max_length = 20, primary_key=True)
     name = models.CharField(max_length=20)
     photo_url = models.CharField(max_length = 20)
 
