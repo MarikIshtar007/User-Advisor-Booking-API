@@ -1,7 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
-from django.contrib.auth.models import PermissionsMixin
-from django.contrib.auth.models import BaseUserManager
+from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 
 class UserProfileManager(BaseUserManager):
@@ -45,6 +44,11 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def get_name(self):
         """Return full name of user"""
         return self.name
+    
+    def tokens(self):
+        refresh = RefreshToken.for_user(self)
+        return {'refresh':str(refresh),
+        'access':str(refresh.access_token)}
 
     def __str__(self):
         return self.email   

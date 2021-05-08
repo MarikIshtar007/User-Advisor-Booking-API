@@ -56,7 +56,7 @@ class BookAdvisors(generics.GenericAPIView):
 class ShowAppointments(generics.ListAPIView):
     """Shows the respective bookings made by the current user"""
     serializer_class = serializers.ShowAppointmentSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     # Look into if this is possible with generic api and with a viewset....
     def get_queryset(self):
